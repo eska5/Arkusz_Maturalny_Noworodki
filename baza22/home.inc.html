@@ -1,0 +1,17 @@
+<?php
+
+$sql = "SELECT data_urodzenia,COUNT(*) as 'liczba_dzieci' FROM noworodki GROUP BY data_urodzenia ORDER BY 'liczba_dzieci' DESC";
+$result = $conn->query($sql);
+
+if (mysqli_num_rows($result) > 0) 
+{
+    echo"<table border=\"1\">";
+    if($row = mysqli_fetch_assoc($result)) 
+    {
+        echo'<tr><td>' . $row["data_urodzenia"]. '</td><td>' . $row["liczba_dzieci"] . '</td></tr>';
+    }
+    echo "</table>";
+} 
+
+
+?>	

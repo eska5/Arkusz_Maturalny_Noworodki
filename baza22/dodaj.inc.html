@@ -1,0 +1,33 @@
+<?php
+
+
+$sql = "SELECT * FROM noworodki WHERE plec='s' ORDER BY wzrost DESC";
+
+$result = $conn->query($sql);
+
+if (mysqli_num_rows($result) > 0) 
+{
+    echo"<table border=\"1\">";
+    if($row = mysqli_fetch_assoc($result)) 
+    {
+        echo'<tr><td>'. $row["imie"] . '</td><td>' . $row["wzrost"] . '</td></tr>';
+    }
+    echo "</table>";
+} 
+
+
+$sql = "SELECT * FROM noworodki WHERE plec='c' ORDER BY wzrost DESC";
+
+$result = $conn->query($sql);
+
+if (mysqli_num_rows($result) > 0) 
+{
+    echo"<table border=\"1\">";
+    if($row = mysqli_fetch_assoc($result)) 
+    {
+        echo'<tr><td>'. $row["imie"] . '</td><td>' . $row["wzrost"] . '</td></tr>';
+    }
+    echo "</table>";
+} 
+
+?>		
